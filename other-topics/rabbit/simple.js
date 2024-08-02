@@ -7,7 +7,7 @@ console.log(uri);
 
   const ch1 = await conn.createChannel();
   await ch1.assertQueue(queue);
-  const ch2 = await conn.createConfirmChannel();
+  const ch2 = await conn.createConfirmChannel();// to make sure the msg are published (can be used for bulk operations)
   // Sender
   for (let i = 0; i < 5; i++) {
     ch2.sendToQueue(queue, Buffer.from(`something to do ${i + 1}`));
